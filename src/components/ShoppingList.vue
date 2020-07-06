@@ -1,56 +1,52 @@
 <template>
   <div class="shoppingList">
     <ul>
-      <li v-for="item in list" :key="item.title" @click="checkItem(item)">
-        {{item.title}}
-      </li>
+      <div class="shoppingTilesWrapper" >
+        <ShoppingListItem v-for="item in list" :key="item.title" :item="item"></ShoppingListItem>
+      </div>
     </ul>
     <div>
-    <input v-model="newItem" v-on:keyup.enter="addItem()" />
-    <button type="submit" v-on:click="addItem()">add</button>
+      <input v-model="newItem" v-on:keyup.enter="addItem()" />
+      <button type="submit" v-on:click="addItem()">add</button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { store } from '../store';
-import { ShoppingItem } from '../models/ShoppingItem.model';
+import ShoppingListItem from '@/components/ShoppingListItem.vue';
+import { store } from '@/store';
 
-@Component
+@Component({
+  components: {
+    ShoppingListItem,
+  },
+})
 export default class ShoppingList extends Vue {
-  newItem = '';
+  private newItem = '';
 
-  list = store.state.list;
+  private list = store.state.list;
 
-  addItem() {
+  public addItem() {
     if (this.newItem === '') {
       return;
     }
     store.addItem({ title: this.newItem });
     this.newItem = '';
   }
-
-  checkItem = (item: ShoppingItem) => {
-    store.checkItem(item);
-  }
 }
+
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .shoppingList {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-ul {
-  max-width: 200px;
-  padding: 0;
+.shoppingTilesWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 400px;
 }
-li:hover {
-  cursor: pointer;
-  background-color: #C7C7C7
-}
-
 </style>
