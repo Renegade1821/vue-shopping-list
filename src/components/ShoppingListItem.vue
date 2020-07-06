@@ -1,5 +1,6 @@
 <template>
   <div class="shoppingListItemTile" @click="checkTile()">
+    <span class="shoppingListItemAbbreviation">{{abbreviation}}</span>
     <span class="shoppingListItemTitle">{{item.title}}
     </span>
   </div>
@@ -17,6 +18,10 @@ export default class ShoppingListItem extends Vue {
   public checkTile() {
     store.checkItem(this.item);
   }
+
+  get abbreviation(): string {
+    return this.item.title.charAt(0).toUpperCase();
+  }
 }
 </script>
 
@@ -33,13 +38,29 @@ export default class ShoppingListItem extends Vue {
     background: darken($color: #FFF, $amount: 5%);
   }
 }
+.shoppingListItemAbbreviation {
+  position: absolute;
+  font-weight: bold;
+  font-size: 30px;
+  left: 50%;
+  top: 50%;
+  margin-left: -10px;
+  margin-top: -30px;
+}
 .shoppingListItemTitle {
   font-size: 11px;
   position: absolute;
   left: 50%;
   bottom: 0px;
   transform: translate(-50%, 8%);
-  padding: 2px;
+  padding: 4px;
   width: 80px;
+
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 2.9em;
+  line-height: 1.2em;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
 }
 </style>

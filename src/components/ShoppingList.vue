@@ -47,6 +47,6 @@ export default class ShoppingList extends Vue {
 .shoppingTilesWrapper {
   display: flex;
   flex-wrap: wrap;
-  max-width: 400px;
+  max-width: 410px;
 }
 </style>
