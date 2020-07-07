@@ -1,6 +1,11 @@
 <template>
   <div class="wrapper">
-    <Tile v-for="item in items" :key="item.title" :item="item"></Tile>
+    <Tile
+      v-for="item in items"
+      :key="item.title"
+      :item="item"
+      @click.native="handleTileClick(item)"
+    ></Tile>
   </div>
 </template>
 
@@ -15,7 +20,11 @@ import { ShoppingItem } from '@/models/ShoppingItem.model';
   },
 })
 export default class TilesList extends Vue {
-    @Prop() private items!: ShoppingItem;
+  @Prop() private items!: ShoppingItem;
+
+  handleTileClick(item: ShoppingItem) {
+    this.$emit('tileClick', item);
+  }
 }
 
 </script>

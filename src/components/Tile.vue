@@ -1,5 +1,5 @@
 <template>
-  <div class="tile" @click="checkTile()">
+  <div class="tile">
     <span class="abbreviation">{{abbreviation}}</span>
     <span class="title">{{item.title}}
     </span>
@@ -14,10 +14,6 @@ import { store } from '../store';
 @Component
 export default class Tile extends Vue {
   @Prop() private item!: ShoppingItem;
-
-  public checkTile() {
-    store.checkItem(this.item);
-  }
 
   get abbreviation(): string {
     return this.item.title.charAt(0).toUpperCase();

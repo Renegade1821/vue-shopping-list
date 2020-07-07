@@ -1,7 +1,10 @@
 <template>
 <div class="card shoppingList p-3">
   <AddItemComponent></AddItemComponent>
-  <TilesList :items="list"></TilesList>
+  <TilesList
+    :items="list"
+    @tileClick="handleTileClick"
+  ></TilesList>
 </div>
 </template>
 
@@ -10,6 +13,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import { store } from '@/store';
 import TilesList from '@/components/TilesList.vue';
 import AddItemComponent from '@/components/AddItemComponent.vue';
+import { ShoppingItem } from '@/models/ShoppingItem.model';
 
 @Component({
   components: {
@@ -19,6 +23,8 @@ import AddItemComponent from '@/components/AddItemComponent.vue';
 })
 export default class ShoppingList extends Vue {
   private newItem = '';
+
+  private store = store;
 
   private list = store.state.list;
 
@@ -30,6 +36,10 @@ export default class ShoppingList extends Vue {
       title: this.newItem,
     });
     this.newItem = '';
+  }
+
+  public handleTileClick(item: ShoppingItem) {
+    this.store.checkItem(item);
   }
 }
 </script>
