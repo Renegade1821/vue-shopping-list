@@ -1,5 +1,5 @@
 <template>
-  <div class="shoppingList">
+  <div class="card shoppingList">
     <ul>
       <div class="shoppingTilesWrapper" >
         <ShoppingListItem v-for="item in list" :key="item.title" :item="item"></ShoppingListItem>
@@ -7,7 +7,7 @@
     </ul>
     <div>
       <input v-model="newItem" v-on:keyup.enter="addItem()" />
-      <button type="submit" v-on:click="addItem()">add</button>
+      <button class="btn btn-primary" type="submit" v-on:click="addItem()">add</button>
     </div>
   </div>
 </template>
