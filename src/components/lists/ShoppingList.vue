@@ -1,21 +1,20 @@
 <template>
-  <div class="card shoppingList">
-    <TilesList :items="list"></TilesList>
-    <div>
-      <input v-model="newItem" v-on:keyup.enter="addItem()" />
-      <button class="btn btn-primary" type="submit" v-on:click="addItem()">add</button>
-    </div>
-  </div>
+<div class="card shoppingList p-3">
+  <AddItemComponent></AddItemComponent>
+  <TilesList :items="list"></TilesList>
+</div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { store } from '@/store';
 import TilesList from '@/components/TilesList.vue';
+import AddItemComponent from '@/components/AddItemComponent.vue';
 
 @Component({
   components: {
     TilesList,
+    AddItemComponent,
   },
 })
 export default class ShoppingList extends Vue {
@@ -27,19 +26,19 @@ export default class ShoppingList extends Vue {
     if (this.newItem === '') {
       return;
     }
-    store.addItem({ title: this.newItem });
+    store.addItem({
+      title: this.newItem,
+    });
     this.newItem = '';
   }
 }
-
 </script>
 
 <style scoped lang="scss">
 .shoppingList {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  max-width: 444px;
 }
+
 .shoppingTilesWrapper {
   display: flex;
   flex-wrap: wrap;

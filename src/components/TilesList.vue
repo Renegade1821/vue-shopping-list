@@ -1,5 +1,5 @@
 <template>
-  <div class="shoppingTilesWrapper">
+  <div class="wrapper">
     <Tile v-for="item in items" :key="item.title" :item="item"></Tile>
   </div>
 </template>
@@ -24,6 +24,5 @@ export default class TilesList extends Vue {
 .wrapper {
   display: flex;
   flex-wrap: wrap;
-  max-width: 410px;
 }
 </style>
