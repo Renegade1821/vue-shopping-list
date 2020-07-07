@@ -8,10 +8,18 @@ export interface State {
 export const store = {
   state: {
     list: [
-      { title: 'apple' },
-      { title: 'fanta' },
-      { title: 'cola' },
-      { title: 'sprite' },
+      { title: 'Holzkohle' },
+      { title: 'Grillkäse' },
+      { title: 'Baguette' },
+      { title: 'BBQ Sauce' },
+      { title: 'Steak' },
+      { title: 'Wildlachs' },
+      { title: 'Salat' },
+      { title: 'Reisdorf Kölsch' },
+      { title: 'Ketchup' },
+      { title: 'Bratwurst' },
+      { title: 'Chips' },
+      { title: 'fritz-kola' },
     ],
     history: [],
   } as State,
