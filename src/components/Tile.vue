@@ -1,7 +1,7 @@
 <template>
-  <div class="shoppingListItemTile" @click="checkTile()">
-    <span class="shoppingListItemAbbreviation">{{abbreviation}}</span>
-    <span class="shoppingListItemTitle">{{item.title}}
+  <div class="tile" @click="checkTile()">
+    <span class="abbreviation">{{abbreviation}}</span>
+    <span class="title">{{item.title}}
     </span>
   </div>
 </template>
@@ -12,7 +12,7 @@ import { ShoppingItem } from '@/models/ShoppingItem.model';
 import { store } from '../store';
 
 @Component
-export default class ShoppingListItem extends Vue {
+export default class Tile extends Vue {
   @Prop() private item!: ShoppingItem;
 
   public checkTile() {
@@ -26,7 +26,7 @@ export default class ShoppingListItem extends Vue {
 </script>
 
 <style scoped lang="scss">
-.shoppingListItemTile {
+.tile {
   margin: 1px;
   height: 80px;
   width: 80px;
@@ -38,7 +38,7 @@ export default class ShoppingListItem extends Vue {
     background: darken($color: #FFF, $amount: 5%);
   }
 }
-.shoppingListItemAbbreviation {
+.abbreviation {
   position: absolute;
   font-weight: bold;
   font-size: 30px;
@@ -47,7 +47,7 @@ export default class ShoppingListItem extends Vue {
   margin-left: -10px;
   margin-top: -30px;
 }
-.shoppingListItemTitle {
+.title {
   font-size: 11px;
   position: absolute;
   left: 50%;

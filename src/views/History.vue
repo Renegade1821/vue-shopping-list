@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import HistoryList from '@/components/HistoryList.vue';
+import HistoryList from '@/components/lists/HistoryList.vue';
 
 export default {
   name: 'History',

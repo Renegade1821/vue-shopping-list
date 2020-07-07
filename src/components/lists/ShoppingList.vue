@@ -1,10 +1,6 @@
 <template>
   <div class="card shoppingList">
-    <ul>
-      <div class="shoppingTilesWrapper" >
-        <ShoppingListItem v-for="item in list" :key="item.title" :item="item"></ShoppingListItem>
-      </div>
-    </ul>
+    <TilesList :items="list"></TilesList>
     <div>
       <input v-model="newItem" v-on:keyup.enter="addItem()" />
       <button class="btn btn-primary" type="submit" v-on:click="addItem()">add</button>
@@ -14,12 +10,12 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import ShoppingListItem from '@/components/ShoppingListItem.vue';
 import { store } from '@/store';
+import TilesList from '@/components/TilesList.vue';
 
 @Component({
   components: {
-    ShoppingListItem,
+    TilesList,
   },
 })
 export default class ShoppingList extends Vue {
