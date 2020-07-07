@@ -21,7 +21,9 @@ export const store = {
       { title: 'Chips' },
       { title: 'fritz-kola' },
     ],
-    history: [],
+    history: [
+      { title: 'Batterien' },
+    ],
   } as State,
 
   addItem(item: ShoppingItem) {
@@ -35,5 +37,15 @@ export const store = {
     if (index !== -1) {
       this.state.list.splice(index, 1);
     }
+  },
+
+  readdItem(readdItem: ShoppingItem) {
+    console.log('readd');
+
+    const index = this.state.history.findIndex((item) => item.title === readdItem.title);
+    if (index !== -1) {
+      this.state.history.splice(index, 1);
+    }
+    this.addItem(readdItem);
   },
 };

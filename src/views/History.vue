@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container d-flex justify-content-center">
     <HistoryList/>
   </div>
 </template>

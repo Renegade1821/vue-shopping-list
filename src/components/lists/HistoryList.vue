@@ -1,37 +1,38 @@
 <template>
-  <div class="history">
-    <ul>
-      <li v-for="item in history" :key="item.title">
-        {{item.title}}
-      </li>
-    </ul>
+  <div class="card history p-3">
+    <TilesList
+    :items="history"
+    @tileClick="handleTileClick"
+    ></TilesList>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { store } from '@/store';
+import TilesList from '@/components/TilesList.vue';
+import { ShoppingItem } from '../../models/ShoppingItem.model';
 
-@Component
+@Component({
+  components: {
+    TilesList,
+  },
+})
 export default class HistoryList extends Vue {
+  store = store;
+
   history = store.state.history;
+
+  handleTileClick(item: ShoppingItem) {
+    console.log('history', item);
+    this.store.readdItem(item);
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .history {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  width: 444px;
 }
-ul {
-  max-width: 200px;
-  padding: 0;
-}
-li:hover {
-  cursor: pointer;
-  background-color: #C7C7C7
-}
-
 </style>
