@@ -1,5 +1,6 @@
 <template>
   <div class="card history p-3">
+    <h4 class="d-flex">Zuletzt verwendet</h4>
     <TilesList
     :items="history"
     @tileClick="handleTileClick"
@@ -11,7 +12,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { store } from '@/store';
 import TilesList from '@/components/TilesList.vue';
-import { ShoppingItem } from '../../models/ShoppingItem.model';
+import { ShoppingItem } from '@/models/ShoppingItem.model';
 
 @Component({
   components: {
@@ -24,7 +25,6 @@ export default class HistoryList extends Vue {
   history = store.state.history;
 
   handleTileClick(item: ShoppingItem) {
-    console.log('history', item);
     this.store.readdItem(item);
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="addItemWrapper">
     <input class="form-control mr-2" v-model="newItem" v-on:keyup.enter="addItem()" />
-    <button class="btn btn-primary" type="submit" v-on:click="addItem()">add</button>
+    <button class="btn btn-primary" type="submit" v-on:click="addItem()"><b>+</b></button>
   </div>
 </template>
 

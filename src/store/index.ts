@@ -40,8 +40,6 @@ export const store = {
   },
 
   readdItem(readdItem: ShoppingItem) {
-    console.log('readd');
-
     const index = this.state.history.findIndex((item) => item.title === readdItem.title);
     if (index !== -1) {
       this.state.history.splice(index, 1);

@@ -1,5 +1,6 @@
 <template>
 <div class="card shoppingList p-3">
+  <h4 class="d-flex">Einkaufsliste</h4>
   <AddItemComponent></AddItemComponent>
   <TilesList
     :items="list"
