@@ -40,12 +40,12 @@ export default class TilesList extends Vue {
 }
 
 .list-enter-active, .list-leave-active {
-  transition: opacity 0.5s;
+  transition: all 0.5s;
 }
 .list-enter, .list-leave-to {
   opacity: 0;
 }
 .list-move {
-  transition: transform 1s;
+  transition: transform 0.5s;
 }
 </style>
