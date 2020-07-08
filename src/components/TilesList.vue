@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <button class="btn btn-primary" @click="handleClick()">foo</button> -->
     <transition-group name="list" tag="p" class="d-flex flex-wrap">
       <Tile
         class="tile"
@@ -30,32 +29,6 @@ export default class TilesList extends Vue {
   handleTileClick(item: ShoppingItem) {
     this.$emit('tileClick', item);
   }
-
-  // handleClick() {
-  //   this.items = this.shuffle(this.items);
-  // }
-
-  // shuffle(array: ShoppingItem[]) {
-  //   const foo = [...array];
-  //   let currentIndex = array.length;
-  //   let temporaryValue;
-  //   let randomIndex;
-  //   console.log('items', this.items);
-
-  //   // While there remain elements to shuffle...
-  //   while (currentIndex !== 0) {
-  //     // Pick a remaining element...
-  //     randomIndex = Math.floor(Math.random() * currentIndex);
-  //     currentIndex -= 1;
-
-  //     // And swap it with the current element.
-  //     temporaryValue = foo[currentIndex];
-  //     foo[currentIndex] = foo[randomIndex];
-  //     foo[randomIndex] = temporaryValue;
-  //   }
-
-  //   return foo;
-  // }
 }
 
 </script>

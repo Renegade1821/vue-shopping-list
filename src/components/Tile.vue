@@ -9,7 +9,6 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { ShoppingItem } from '@/models/ShoppingItem.model';
-import { store } from '../store';
 
 @Component
 export default class Tile extends Vue {
