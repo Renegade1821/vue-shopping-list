@@ -34,22 +34,16 @@ export default class Tile extends Vue {
   }
 }
 .abbreviation {
-  position: absolute;
   font-weight: bold;
   font-size: 30px;
-  left: 50%;
-  top: 50%;
-  margin-left: -10px;
-  margin-top: -30px;
+  text-align: center;
 }
 .title {
   font-size: 11px;
   position: absolute;
-  left: 50%;
   bottom: 0px;
-  transform: translate(-50%, 8%);
   padding: 4px;
-  width: 80px;
+  width: 100%;
 
   text-overflow: ellipsis;
   word-wrap: break-word;

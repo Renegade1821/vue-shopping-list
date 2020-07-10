@@ -16,7 +16,6 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import Tile from '@/components/Tile.vue';
 import { ShoppingItem } from '@/models/ShoppingItem.model';
-import ShoppingList from '@/components/lists/ShoppingList.vue';
 
 @Component({
   components: {
